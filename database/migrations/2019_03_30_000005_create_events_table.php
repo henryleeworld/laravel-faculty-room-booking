@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('title');
             $table->datetime('start_time');
             $table->datetime('end_time');

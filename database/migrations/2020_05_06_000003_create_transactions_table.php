@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('room_id')->nullable();
-            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('room_id')->nullable()->constrained();
             $table->integer('paid_amount');
             $table->integer('booking_time')->nullable();
             $table->softDeletes();
